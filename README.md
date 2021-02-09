@@ -1,7 +1,7 @@
 # Fauna_Appointment_Scheduler
 
 ## dependencies
-#### Python, Django==2.1
+#### Python, Django==2.1, faunadb
 
 ## run 
 
