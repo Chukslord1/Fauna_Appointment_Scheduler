@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <title>
+    Appointment Scheduler
+  </title>
+  <link href="{% static 'appointment/style.css' %}" rel="stylesheet"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+ </head>
+ <body>
+  <!-- partial:index.partial.html -->
+  <script src="https://code.jquery.com/jquery-2.1.0.min.js">
+  </script>
+  <body>
+   <div id="formWrapper">
+    <div id="form">
+     <div class="logo">
+      <h2>Create an Appointment</h2>
+     </div>
+     <form method="POST">
+       {% if messages %}
+   <ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color:red;">{{ message }}</li>
+    {% endfor %}
+   </ul>
+   {% endif %}
+        {% csrf_token %}
+     <div class="form-item">
+      <p class="formLabel">
+       Appointment Name
+      </p>
+      <input autocomplete="off" class="form-style" id="email" name="name" type="text" required/>
+     </div>
+     <div class="form-item">
+      <p class="formLabel">
+       Appointment Description
+      </p>
+      <input autocomplete="off" class="form-style" id="email" name="description" type="text" required/>
+     </div>
+     <div class="form-item">
+      <p class="formLabel">
+       Appointment Time
+      </p>
+      <input autocomplete="off" class="form-style" id="email" name="time" type="time" required/>
+     </div>
+     <div class="form-item">
+      <p class="formLabel">
+       Appointment Date
+      </p>
+      <input autocomplete="off" class="form-style" id="email" name="date" type="date" required/>
+     </div>
+     <div class="form-item">
+      <a href="dashboard"> <button class="btn btn-danger btn-rounded" type="button">Back</button></a>
+      <input class="login pull-right" type="submit" value="Create"/>
+      <div class="clear-fix">
+      </div>
+     </div>
+    </div>
+    </form>
+   </div>
+  </body>
+ </body>
+</html>
+<!-- partial -->
+<script src="{% static 'appointment/script.js' %}">
+</script>

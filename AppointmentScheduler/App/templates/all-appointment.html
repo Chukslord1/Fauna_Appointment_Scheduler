@@ -1,0 +1,54 @@
+{% load static %}
+
+<html>
+ <head>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+ <!-- Optional theme -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+ <!-- Latest compiled and minified JavaScript -->
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link href="{% static 'login/style.css' %}" rel="stylesheet"/>
+  <link href="{% static 'https://fonts.googleapis.com/css?family=Ubuntu' %}" rel="stylesheet"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="{% static 'path/to/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet"/>
+  <title>
+  Appointment Scheduler
+  </title>
+ </head>
+ <body>
+  <div class="main">
+   <p align="center" class="sign">
+    You have {{count}} Appointments in Total
+   </p>
+   <center>
+     <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{appointment.name}}</h5>
+    <p class="card-text">{{appointment.description}}</p>
+    <p class="card-text">Date: {{appointment.date}}</p>
+    <p class="card-text">Time:{{appointment.time}}</p>
+  </div>
+</div>
+{% if appointment.status == "True" %}
+<a class="btn btn-primary">Completed</a>
+{% else %}
+<a class="btn btn-danger">Not Completed</a>
+{% endif %}
+   <nav aria-label="...">
+  <ul class="pagination">
+    <li class="page-item disabled">
+      <a class="page-link" href="?page={{ prev_page }}" tabindex="-1">Previous</a>
+    </li>
+    <li class="page-item">
+      <a class="page-link" href="?page={{next_page }}">Next</a>
+    </li>
+  </ul>
+</nav>
+<a href="dashboard"> <button class="btn btn-danger btn-rounded"  type="button">Back</button></a>
+<a href="?delete=''&page={{page_num}}"> <button class="btn btn-danger btn-rounded"  type="button">Delete</button></a>
+</center>
+  </div>
+ </body>
+</html>

@@ -1,0 +1,40 @@
+{% load static %}
+
+<html>
+ <head>
+  <link href="{% static 'login/style.css' %}" rel="stylesheet"/>
+  <link href="{% static 'https://fonts.googleapis.com/css?family=Ubuntu' %}" rel="stylesheet"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <link href="{% static 'path/to/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet"/>
+  <title>
+  Appointment Scheduler
+  </title>
+ </head>
+ <body>
+  <div class="main">
+   <p align="center" class="sign">
+    Hello 👋
+   </p>
+   <form class="form1" method="POST">
+     {% csrf_token %}
+     {% if messages %}
+<ul class="messages">
+  {% for message in messages %}
+  <li{% if message.tags %} class="{{ message.tags }}"{% endif %} style="color:red;">{{ message }}</li>
+  {% endfor %}
+</ul>
+{% endif %}
+    <input align="center" class="un" placeholder="Username" name="username" type="text"/>
+    <input align="center" class="pass" placeholder="Password" name="password" type="password"/>
+    <button align="center" type="submit" class="submit">
+     Sign in
+    </button>
+    </form>
+    <p align="center" class="forgot">
+     <a href="register">
+      Dont have an account? Register
+     </a>
+    </p>
+  </div>
+ </body>
+</html>
