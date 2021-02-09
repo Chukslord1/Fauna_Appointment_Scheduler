@@ -1,8 +1,5 @@
 # Fauna_Appointment_Scheduler
 
-## demo 
-
-
 ## dependencies
 #### Python, Django==2.1
 
