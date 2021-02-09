@@ -12,7 +12,7 @@ import datetime
 
 
 
-client = FaunaClient(secret="fnAEBU95fcACASKc4kkOL99Ln9krPKMaoUmApo4A")
+client = FaunaClient(secret="")
 indexes = client.query(q.paginate(q.indexes()))
 
 
